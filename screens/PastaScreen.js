@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View } from 'react-native';
 
-export default function CartScreen() {
+export default function PastaScreen() {
   return (
     <View>
-        <Text>Cart</Text>
+        <Text>pasta</Text>
     </View>
   )
 }
