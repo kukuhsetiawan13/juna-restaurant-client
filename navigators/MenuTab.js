@@ -19,8 +19,13 @@ export default function MenuTab({navigation}) {
 
   return (
     <Tab.Navigator
-        
-      >
+     tabBarOptions={{
+        indicatorStyle: { backgroundColor: '#bf0303', height: '100%'}
+      }}
+      screenOptions={{
+        tabBarLabelStyle: { color: '#f79708' }
+      }}
+    >
         <Tab.Screen name="Pizza" component={PizzaScreen} />
         <Tab.Screen name="Pasta" component={PastaScreen} />
         <Tab.Screen name="SideDish" options={{ tabBarLabel: 'Side Dish' }} component={SideDishScreen} />
