@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../screens/HomeScreen';
 import CartScreen from '../screens/CartScreen';
 import PrintTransactionScreen from '../screens/PrintTransactionScreen';
-import MenuTabNavigator from '../screens/MenuTabNavigator';
+import MenuTabNavigator from '../navigators/MenuTabNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,10 +41,10 @@ export default function DashboardTab() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Menu" component={MenuTabNavigator} />
-        <Tab.Screen name="Cart" component={CartScreen} />
-        <Tab.Screen name="PrintTransaction" component={PrintTransactionScreen} />
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Menu" component={MenuTabNavigator} options={{headerShown: false}}/>
+        <Tab.Screen name="Cart" component={CartScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="PrintTransaction" component={PrintTransactionScreen} options={{headerShown: false}}/>
       </Tab.Navigator>
   )
 }

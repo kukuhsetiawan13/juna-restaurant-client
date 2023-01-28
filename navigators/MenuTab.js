@@ -23,8 +23,8 @@ export default function MenuTab({navigation}) {
       >
         <Tab.Screen name="Pizza" component={PizzaScreen} />
         <Tab.Screen name="Pasta" component={PastaScreen} />
-        <Tab.Screen name="SideDish" component={SideDishScreen} />
-        <Tab.Screen name="DrinksAndDesserts" component={DrinksAndDessertsScreen} />
+        <Tab.Screen name="SideDish" options={{ tabBarLabel: 'Side Dish' }} component={SideDishScreen} />
+        <Tab.Screen name="DrinksAndDesserts" options={{ tabBarLabel: 'Drinks & Desserts' }} component={DrinksAndDessertsScreen} />
       </Tab.Navigator>
   )
 }
