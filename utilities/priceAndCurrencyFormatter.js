@@ -1,0 +1,1 @@
+export const priceFloatFormatter = (num) => Number(num.toFixed(2));

@@ -1,4 +1,4 @@
-import { FETCH_ALL_FOOD, SET_PIZZA, SET_PASTA, SET_SIDE_DISH, SET_DRINKS_AND_DESSERTS } from "../actions/actionTypes"
+import { FETCH_ALL_FOOD, SET_PIZZA, SET_PASTA, SET_SIDE_DISH, SET_DRINKS_AND_DESSERTS, SET_CART } from "../actions/actionTypes"
 
 
 export const actionFetchAllFood = (payload) => {
@@ -32,6 +32,13 @@ export const actionSetSideDish = (payload) => {
 export const actionSetDrinksAndDesserts = (payload) => {
     return {
         type: SET_DRINKS_AND_DESSERTS,
+        payload
+    }
+}
+
+export const actionSetCart = (payload) => {
+    return {
+        type: SET_CART,
         payload
     }
 }

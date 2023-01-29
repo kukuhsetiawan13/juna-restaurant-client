@@ -10,7 +10,7 @@ const initialState = {
 }
 
 
-function newsReducer(state = initialState, action) {
+function foodReducer(state = initialState, action) {
     switch(action.type) {
         case FETCH_ALL_FOOD:
             return {
@@ -42,4 +42,4 @@ function newsReducer(state = initialState, action) {
     }
 }
 
-export default newsReducer
+export default foodReducer
