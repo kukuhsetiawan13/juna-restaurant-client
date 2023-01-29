@@ -4,6 +4,7 @@ import { Text, View, TextInput, StyleSheet, TouchableOpacity, FlatList } from 'r
 import { useDispatch } from 'react-redux';
 import {addTransaction, fetchTransaction} from '../store/middlewares/thunk'
 import Toast from 'react-native-toast-message';
+import Transaction from '../components/Transaction';
 
 
 export default function PrintTransactionScreen() {
@@ -112,32 +113,7 @@ export default function PrintTransactionScreen() {
             }}
             renderItem={({ item }) => {
               return (
-                <View style={styles.transactionItemContainer}>
-                  <View style={styles.transactionItem}>
-                    <View>
-                      <Text>Name</Text>
-                    </View>
-                    <View>
-                      <Text>{item.Food.name}</Text>
-                    </View>
-                  </View>
-                  <View style={styles.transactionItem}>
-                    <View>
-                      <Text>Quantity</Text>
-                    </View>
-                    <View>
-                      <Text>{item.quantity}</Text>
-                    </View>
-                  </View>
-                  <View style={styles.transactionItem}>
-                    <View>
-                      <Text>Total Price</Text>
-                    </View>
-                    <View>
-                      <Text>$ {(item.price * item.quantity).toFixed(2)}</Text>
-                    </View>
-                  </View>
-                </View>
+                <Transaction item={item} />
               )
             }}
           />

@@ -7,3 +7,4 @@ export const SET_DRINKS_AND_DESSERTS= 'food/sethDrinksAndDesserts'
 export const SET_CART = 'cart/setCart'
 
 export const SET_COUPON = 'coupon/setCoupon'
+export const FETCH_COUPONS = 'coupon/successFetchCoupons'

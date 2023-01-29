@@ -22,6 +22,7 @@ export default function ItemMenu({item}) {
 
   return (
     <View
+        key={item.id}
         style={styles.card}
     >
         <View style={styles.cardFooter}></View>

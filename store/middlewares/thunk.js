@@ -1,4 +1,4 @@
-import {actionFetchAllFood, actionSetPizza, actionSetPasta, actionSetSideDish, actionSetDrinksAndDesserts, actionSetCart, actionSetCoupon } from '../actions/actionCreators'
+import {actionFetchAllFood, actionSetPizza, actionSetPasta, actionSetSideDish, actionSetDrinksAndDesserts, actionSetCart, actionSetCoupon, actionFetchCoupons } from '../actions/actionCreators'
 import {BASE_URL} from '../baseUrl'
 import axios from 'axios'
 
@@ -141,6 +141,21 @@ export const verifyCoupon = (coupon, subTotal) => {
 export const setCoupon = (coupon) => {
     return (dispatch, getState) => {
         dispatch(actionSetCoupon(coupon))
+    }
+}
+
+export const fetchCoupons = () => {
+    return async (dispatch, getState) => {
+        try {
+            const {data} =  await axios({
+                method: 'GET',
+                url: `${BASE_URL}/coupons`,
+            });
+
+            dispatch(actionFetchCoupons(data))
+        } catch(err) {
+            console.log(err)
+        }
     }
 }
 
