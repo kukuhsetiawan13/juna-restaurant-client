@@ -1,4 +1,4 @@
-import {actionFetchAllFood, actionSetPizza, actionSetPasta, actionSetSideDish, actionSetDrinksAndDesserts, actionSetCart } from '../actions/actionCreators'
+import {actionFetchAllFood, actionSetPizza, actionSetPasta, actionSetSideDish, actionSetDrinksAndDesserts, actionSetCart, actionSetCoupon } from '../actions/actionCreators'
 import {BASE_URL} from '../baseUrl'
 import axios from 'axios'
 
@@ -115,5 +115,63 @@ export const removeItemFromCart = (item) => {
         newCart.splice(index, 1)
 
         dispatch(actionSetCart(newCart))
+    }
+}
+
+export const setCartEmpty = () => {
+    return (dispatch, getState) => {
+        dispatch(actionSetCart([]))
+    }
+}
+
+export const verifyCoupon = (coupon, subTotal) => {
+    return (dispatch, getState) => {
+
+        return axios({
+            method: 'POST',
+            url: `${BASE_URL}/coupons/verify`,
+            data: {
+                coupon,
+                subTotal
+            }
+        });
+    }
+}
+
+export const setCoupon = (coupon) => {
+    return (dispatch, getState) => {
+        dispatch(actionSetCoupon(coupon))
+    }
+}
+
+export const addTransaction = (tableId) => {
+    return (dispatch, getState) => {
+        const { CartReducer } = getState();
+        const { CouponReducer } = getState();
+
+        return axios({
+            method: 'POST',
+            url: `${BASE_URL}/transaction/create`,
+            data: {
+                tableId,
+                coupon: CouponReducer.coupon,
+                orders: CartReducer.cart
+            }
+
+        })
+    }
+}
+
+export const fetchTransaction = (TransactionId, securityCode) => {
+    return (dispatch, getState) => {
+        return axios({
+            method: 'POST',
+            url: `${BASE_URL}/transaction/find`,
+            data: {
+                TransactionId,
+                securityCode
+            }
+
+        })
     }
 }

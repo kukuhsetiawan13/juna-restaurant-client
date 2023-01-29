@@ -5,3 +5,5 @@ export const SET_SIDE_DISH= 'food/setSideDish'
 export const SET_DRINKS_AND_DESSERTS= 'food/sethDrinksAndDesserts'
 
 export const SET_CART = 'cart/setCart'
+
+export const SET_COUPON = 'coupon/setCoupon'
